@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            position: relative;
+            text-align: center;
+            color: rgb(241, 227, 227);
+            font-weight: 900;
+            width: 50%;
+        }
+
+      
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="display: flex;">
+        <div class="container">
+            <img src="pic5.jpg" alt="Snow" style="width:100%;">
+           
+            <div  class="centered"> <p id="dem"></p> </div>
+        </div>
+
+        <div>
+            <input id="i1" oninput="dynamic()" type="text" >
+            <br>
+            <button id="btn">copy</button>
+        </div>
+
+
+    </div>
+</body>
+<script>
+    function dynamic(){
+        const val1= document.getElementById("dem");
+        const val2= document.getElementById("i1").value;
+        val1.innerHTML=val2;
+    }
+</script>
+
+</html>

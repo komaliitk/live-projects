@@ -22,18 +22,18 @@
     </style>
 </head>
 
-<body>
-
-    <div style="display: flex;">
+<body onload="loading()" style="background-color:whitesmoke;">
+     
+    <div style="display: flex; margin-top:5%;">
         <div class="container">
-            <img src="assets/pic5.jpg" alt="Snow" style="width:100%;">
+            <img src="assets/pic5.jpg" alt="Snow" width="300" height="450">
            
-            <div  class="centered"> <p id="dem"></p> </div>
+            <div  class="centered"> <p id="dem" style="color: black;"></p> </div>
         </div>
 
-        <div>
-            <input id="i1" oninput="dynamic()" type="text" >
-            <br>
+        <div style="margin-left:5%;">
+            <input id="i1" oninput="dynamic()" type="text" maxlength="5" placeholder="enter your text">
+            <br><br>
             <button id="btn">copy</button>
         </div>
 
@@ -41,10 +41,20 @@
     </div>
 </body>
 <script>
-    function dynamic(){
+
+function dynamic(){
         const val1= document.getElementById("dem");
         const val2= document.getElementById("i1").value;
         val1.innerHTML=val2;
+        const val3=document.cookie = "username="+val2+"; expires=Mon, 14 feb 2022 12:00:00 UTC";
+        // console.log("cookie is"+val3);
+        localStorage.setItem("lastcookie",val2);
+ }
+    function loading(){
+        const c=localStorage.getItem("lastcookie");
+        console.log("lastcookie is"+c);
+        document.getElementById("dem").innerHTML=c;
+        document.getElementById("i1").value=c;
     }
 </script>
 
